@@ -2,22 +2,37 @@ require "spec_helper"
 require "banktools-dk"
 
 describe BankTools::DK::Account do
-  it "is valid with a number of 11 to 14 digits" do
-    expect(account_with_number("12345678901")).to be_valid
-    expect(account_with_number("12345678901234")).to be_valid
+  describe "#valid?" do
+    it "is true with no errors" do
+      expect(account_with_number("12345678901234")).to be_valid
+    end
+
+    it "is false with errors" do
+      expect(account_with_number("123")).not_to be_valid
+    end
   end
 
-  it "is not valid when number is above 14 in length" do
-    expect(account_with_number("123456789012345")).not_to be_valid
-  end
+  describe "#errors" do
+    it "is empty when valid" do
+      expect(account_with_number("12345678901").errors).to be_empty
+    end
 
-  it "is not valid when below 11" do
-    expect(account_with_number("1234567890")).not_to be_valid
+    it "includes TOO_SHORT if below 11 characters" do
+      expect(account_with_number("1234567890").errors).to include(BankTools::DK::Errors::TOO_SHORT)
+    end
+
+    it "includes TOO_LONG if above 14 characters" do
+      expect(account_with_number("123456789012345").errors).to include(BankTools::DK::Errors::TOO_LONG)
+    end
+
+    it "includes INVALID_CHARACTERS when other characters than digits, whitespace and dashes" do
+      expect(account_with_number("1234567n890").errors).to include(BankTools::DK::Errors::INVALID_CHARACTERS)
+    end
   end
 
   private
 
   def account_with_number(number)
-   BankTools::DK::Account.new(number)
- end
+    BankTools::DK::Account.new(number)
+  end
 end
