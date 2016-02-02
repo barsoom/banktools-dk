@@ -1,4 +1,4 @@
-# Banktools::Dk
+# Danish banktools
 
 Ruby gem to validate and normalize Danish account numbers.
 
@@ -20,7 +20,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+account = BankTools::DK::Account.new("12345678901")
+account.valid?  # => true
+account.errors  # => []
+
+bad_account = BankTools::DK::Account.new("1")
+bad_account.valid?  # => false
+bad_account.errors  # => [:too_short]
 
 ## Development
 

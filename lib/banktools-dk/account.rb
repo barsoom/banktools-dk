@@ -1,6 +1,7 @@
 module BankTools
   module DK
     class Account
+      # The number consists of a 4 digit bank registration number followed by a 7-10 digits long account number with no punctuation, dashes or whitespaces. See https://www.nordea.se/Images/40-11936/utlandsbetalningar-landinformation.pdf for information in Swedish.
       MIN_LENGTH = 11
       MAX_LENGTH = 14
 
@@ -16,7 +17,7 @@ module BankTools
         errors = []
         errors << :too_short if too_short?
         errors << :too_long if too_long?
-        errors << :invalid_characters if any_non_numbers?
+        errors << :invalid_characters if any_non_digits?
         errors
       end
 
@@ -30,8 +31,8 @@ module BankTools
         @number.size > MAX_LENGTH
       end
 
-      def any_non_numbers?
-        !@number.scan(/\D/).empty?
+      def any_non_digits?
+        @number.match(/\D/)
       end
     end
   end

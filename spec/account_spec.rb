@@ -25,7 +25,7 @@ describe BankTools::DK::Account do
       expect(account_with_number("123456789012345").errors).to include(BankTools::DK::Errors::TOO_LONG)
     end
 
-    it "includes INVALID_CHARACTERS when other characters than digits, whitespace and dashes" do
+    it "includes INVALID_CHARACTERS when number contains other characters than digits" do
       expect(account_with_number("1234567n890").errors).to include(BankTools::DK::Errors::INVALID_CHARACTERS)
     end
   end
