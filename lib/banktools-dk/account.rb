@@ -1,7 +1,8 @@
 module BankTools
   module DK
     class Account
-      # The number consists of a 4 digit bank registration number followed by a 7-10 digits long account number with no punctuation, dashes or whitespaces. See https://www.nordea.se/Images/40-11936/utlandsbetalningar-landinformation.pdf for information in Swedish.
+      # The number consists of a 4 digit bank registration number followed by a 7-10 digits long account number with no punctuation, dashes or whitespaces.
+      # See https://www.nordea.se/Images/40-11936/utlandsbetalningar-landinformation.pdf for information in Swedish.
       MIN_LENGTH = 11
       MAX_LENGTH = 14
 

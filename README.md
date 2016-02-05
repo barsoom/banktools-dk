@@ -1,14 +1,38 @@
 # Danish banktools
 
-Ruby gem to validate and normalize Danish account numbers.
+Ruby gem to validate Danish account numbers.
+
+This library only checks the length of the full account number, bank registration number included.
+
+If we got anything wrong, please file an issue or contribute a fix yourself.
+
+## Usage
+
+    account = BankTools::DK::Account.new("12345678901")
+    account.valid?  # => true
+    account.errors  # => []
+
+    bad_account = BankTools::DK::Account.new("1")
+    bad_account.valid?  # => false
+    bad_account.errors  # => [:too_short]
+
+    # Error codes
+
+    BankTools::SE::Errors::TOO_SHORT                # => :too_short
+    BankTools::SE::Errors::TOO_LONG                 # => :too_long
+    BankTools::SE::Errors::INVALID_CHARACTERS       # => :invalid_characters
+
+## Tests
+
+    bundle
+    rspec # or: rake
+
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'banktools-dk'
-```
+    gem 'banktools-dk'
 
 And then execute:
 
@@ -18,26 +42,16 @@ Or install it yourself as:
 
     $ gem install banktools-dk
 
-## Usage
+## TODO
 
-account = BankTools::DK::Account.new("12345678901")
-account.valid?  # => true
-account.errors  # => []
+* Normalization
+* Interpret bank registration number?
 
-bad_account = BankTools::DK::Account.new("1")
-bad_account.valid?  # => false
-bad_account.errors  # => [:too_short]
+## Also see
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/banktools-dk.
-
+* [BankTools::SE(Swedish)](https://github.com/barsoom/banktools-se)
+* [BankTools::DE (German)](https://github.com/barsoom/banktools-de)
+* [iban-tools](https://github.com/iulianu/iban-tools)
 
 ## License
 
