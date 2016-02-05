@@ -1,6 +1,6 @@
 # Danish banktools
 
-Ruby gem to validate Danish account numbers.
+Ruby gem to validate and normalize Danish account numbers.
 
 This library only checks the length of the full account number, bank registration number included.
 
