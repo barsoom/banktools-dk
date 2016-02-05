@@ -39,7 +39,7 @@ module BankTools
       end
 
       def normalize(number)
-        number.gsub(" ", "")
+        number.gsub(/[\s.-]/, "")
       end
     end
   end

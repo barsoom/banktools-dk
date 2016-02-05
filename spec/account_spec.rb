@@ -14,6 +14,14 @@ describe BankTools::DK::Account do
     it "handles whitespace" do
       expect(account_with_number("1234 567 890 1234")).to be_valid
     end
+
+    it "handles dashes" do
+      expect(account_with_number("1234-5678901234")).to be_valid
+    end
+
+    it "handles dots" do
+      expect(account_with_number("1234.5678.901234")).to be_valid
+    end
   end
 
   describe "#errors" do
