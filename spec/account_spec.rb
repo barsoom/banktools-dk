@@ -10,6 +10,10 @@ describe BankTools::DK::Account do
     it "is false with errors" do
       expect(account_with_number("123")).not_to be_valid
     end
+
+    it "handles whitespace" do
+      expect(account_with_number("1234 567 890 1234")).to be_valid
+    end
   end
 
   describe "#errors" do

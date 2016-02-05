@@ -6,8 +6,10 @@ module BankTools
       MIN_LENGTH = 11
       MAX_LENGTH = 14
 
+      attr_reader :normalized_number
+
       def initialize(number)
-        @number = number
+        @normalized_number = normalize(number)
       end
 
       def valid?
@@ -25,15 +27,19 @@ module BankTools
       private
 
       def too_short?
-        @number.size < MIN_LENGTH
+        normalized_number.size < MIN_LENGTH
       end
 
       def too_long?
-        @number.size > MAX_LENGTH
+        normalized_number.size > MAX_LENGTH
       end
 
       def any_non_digits?
-        @number.match(/\D/)
+        normalized_number.match(/\D/)
+      end
+
+      def normalize(number)
+        number.gsub(" ", "")
       end
     end
   end
