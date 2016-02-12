@@ -18,9 +18,9 @@ If we got anything wrong, please file an issue or contribute a fix yourself.
 
     # Error codes
 
-    BankTools::SE::Errors::TOO_SHORT                # => :too_short
-    BankTools::SE::Errors::TOO_LONG                 # => :too_long
-    BankTools::SE::Errors::INVALID_CHARACTERS       # => :invalid_characters
+    BankTools::DK::Errors::TOO_SHORT                # => :too_short
+    BankTools::DK::Errors::TOO_LONG                 # => :too_long
+    BankTools::DK::Errors::INVALID_CHARACTERS       # => :invalid_characters
 
 ## Tests
 
@@ -49,7 +49,7 @@ Or install it yourself as:
 
 ## Also see
 
-* [BankTools::SE(Swedish)](https://github.com/barsoom/banktools-se)
+* [BankTools::SE (Swedish)](https://github.com/barsoom/banktools-se)
 * [BankTools::DE (German)](https://github.com/barsoom/banktools-de)
 * [iban-tools](https://github.com/iulianu/iban-tools)
 
