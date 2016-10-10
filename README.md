@@ -1,4 +1,4 @@
-# Danish banktools
+# Danish bank tools
 
 Ruby gem to validate and normalize Danish account numbers.
 
