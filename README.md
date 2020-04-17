@@ -1,5 +1,7 @@
 # Danish bank tools
 
+[![Build Status](https://secure.travis-ci.org/barsoom/banktools-dk.svg)](http://travis-ci.org/barsoom/banktools-dk)
+
 Ruby gem to validate and normalize Danish account numbers.
 
 This library only checks the length of the full account number, bank registration number included.
@@ -8,19 +10,21 @@ If we got anything wrong, please file an issue or contribute a fix yourself.
 
 ## Usage
 
-    account = BankTools::DK::Account.new("12345678901")
-    account.valid?  # => true
-    account.errors  # => []
+```ruby
+account = BankTools::DK::Account.new("12345678901")
+account.valid?  # => true
+account.errors  # => []
 
-    bad_account = BankTools::DK::Account.new("1")
-    bad_account.valid?  # => false
-    bad_account.errors  # => [:too_short]
+bad_account = BankTools::DK::Account.new("1")
+bad_account.valid?  # => false
+bad_account.errors  # => [:too_short]
 
-    # Error codes
+# Error codes
 
-    BankTools::DK::Errors::TOO_SHORT                # => :too_short
-    BankTools::DK::Errors::TOO_LONG                 # => :too_long
-    BankTools::DK::Errors::INVALID_CHARACTERS       # => :invalid_characters
+BankTools::DK::Errors::TOO_SHORT                # => :too_short
+BankTools::DK::Errors::TOO_LONG                 # => :too_long
+BankTools::DK::Errors::INVALID_CHARACTERS       # => :invalid_characters
+```
 
 ## Tests
 
@@ -32,7 +36,9 @@ If we got anything wrong, please file an issue or contribute a fix yourself.
 
 Add this line to your application's Gemfile:
 
-    gem 'banktools-dk'
+```ruby
+gem 'banktools-dk'
+```
 
 And then execute:
 
