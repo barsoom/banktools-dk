@@ -1,6 +1,6 @@
 # Danish bank tools
 
-[![Build Status](https://secure.travis-ci.org/barsoom/banktools-dk.svg)](http://travis-ci.org/barsoom/banktools-dk)
+[![CI](https://github.com/barsoom/banktools-dk/actions/workflows/ci.yml/badge.svg)](https://github.com/barsoom/banktools-dk/actions/workflows/ci.yml)
 
 Ruby gem to validate and normalize Danish account numbers.
 
