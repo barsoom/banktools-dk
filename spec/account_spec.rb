@@ -1,7 +1,6 @@
-require "spec_helper"
 require "banktools-dk"
 
-describe BankTools::DK::Account do
+RSpec.describe BankTools::DK::Account do
   describe "#valid?" do
     it "is true with no errors" do
       expect(account_with_number("12345678901234")).to be_valid
