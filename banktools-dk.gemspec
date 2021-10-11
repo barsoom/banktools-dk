@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = [ "kim@auctionet.com" ]
 
   spec.summary       = %q{Validate and normalise Danish bank account numbers.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/barsoom/banktools-dk"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
