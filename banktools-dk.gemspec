@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Validate and normalise Danish bank account numbers.}
   spec.homepage      = "https://github.com/barsoom/banktools-dk"
   spec.license       = "MIT"
+  spec.metadata      = { "rubygems_mfa_required" => "true" }
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.require_paths = [ "lib" ]
